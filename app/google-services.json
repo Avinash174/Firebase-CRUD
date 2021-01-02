@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "365069990463",
+    "project_id": "trainingperpose",
+    "storage_bucket": "trainingperpose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365069990463:android:dcbaf33aa6e320db6fd68a",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365069990463-286n504t6s0bploe8apqvv0c9egc4mvs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase",
+            "certificate_hash": "de8a51f7f7a227994f0317db2b97a586bf13c2fa"
+          }
+        },
+        {
+          "client_id": "365069990463-u8iuovurfma3snugf0lg0o66kv2aqdcd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO4qE4Or7jfF2hhgTkI9DGaa3ExydtCuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365069990463-u8iuovurfma3snugf0lg0o66kv2aqdcd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
