@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     EditText first_name,last_name,phone_no;
-    Button btn;
+    Button btn,del;
+    ScrollView scrollView;
     int maxid=0;
     Member member;
 
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         last_name=findViewById(R.id.ln);
         phone_no=findViewById(R.id.pn);
         btn=findViewById(R.id.send);
+        del=findViewById(R.id.delete);
+        scrollView=findViewById(R.id.scrollView);
         Member member = new Member();
         databaseReference= firebaseDatabase.getInstance().getReference().child("USER");
 
@@ -57,5 +62,18 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             });
+
+            del.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteUser(maxid);
+
+                }
+            });
 }
+
+    private void deleteUser(int maxid) {
+        DatabaseReference databaseReference1=firebaseDatabase.getInstance().getReference("maxid").child(String.valueOf(maxid));
+        databaseReference.removeValue();
+    }
 }
