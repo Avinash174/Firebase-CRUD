@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     member.setLast_name(last_name.getText().toString());
                    member.setPhone_no(phone_no.getText().toString());
                    databaseReference.child(String.valueOf(maxid+1)).setValue(member);
+                    Toast.makeText(getApplicationContext(),"Added Successful",Toast.LENGTH_SHORT).show();
                 }
 
             });
@@ -75,5 +76,6 @@ public class MainActivity extends AppCompatActivity {
     private void deleteUser(int maxid) {
         DatabaseReference databaseReference1=firebaseDatabase.getInstance().getReference("maxid").child(String.valueOf(maxid));
         databaseReference.removeValue();
+        Toast.makeText(getApplicationContext(),"Deleted Successful",Toast.LENGTH_SHORT).show();
     }
 }
