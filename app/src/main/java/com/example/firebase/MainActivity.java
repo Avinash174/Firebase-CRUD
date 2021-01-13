@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,24 +19,25 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    EditText first_name,last_name,phone_no;
+    EditText first_name, last_name, phone_no,delete;
     Button btn,del;
     ScrollView scrollView;
-    int maxid=0;
+    int maxid = 0;
     Member member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        first_name=findViewById(R.id.fn);
-        last_name=findViewById(R.id.ln);
-        phone_no=findViewById(R.id.pn);
-        btn=findViewById(R.id.send);
-        del=findViewById(R.id.delete);
-        scrollView=findViewById(R.id.scrollView);
-        Member member = new Member();
-        databaseReference= firebaseDatabase.getInstance().getReference().child("USER");
+        first_name = findViewById(R.id.fn);
+        last_name = findViewById(R.id.ln);
+        phone_no = findViewById(R.id.pn);
+        delete=findViewById(R.id.delete);
+        del=findViewById(R.id.del);
+        btn = findViewById(R.id.send);
+        scrollView = findViewById(R.id.scrollView);
+        member = new Member();
+        databaseReference = firebaseDatabase.getInstance().getReference().child("user");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,30 +52,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    member.setFist_name(first_name.getText().toString());
-                    member.setLast_name(last_name.getText().toString());
-                   member.setPhone_no(phone_no.getText().toString());
-                   databaseReference.child(String.valueOf(maxid+1)).setValue(member);
-                    Toast.makeText(getApplicationContext(),"Added Successful",Toast.LENGTH_SHORT).show();
-                }
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                member.setFist_name(first_name.getText().toString());
+                member.setLast_name(last_name.getText().toString());
+                member.setPhone_no(phone_no.getText().toString());
+                databaseReference.child(String.valueOf(maxid + 1)).setValue(member);
 
-            });
+            }
 
-            del.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    deleteUser(maxid);
+        });
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteID(maxid);
+            }
+        });
 
-                }
-            });
-}
+    }
 
-    private void deleteUser(int maxid) {
-        DatabaseReference databaseReference1=firebaseDatabase.getInstance().getReference("maxid").child(String.valueOf(maxid));
+    private void deleteID(int maxid) {
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("user").child(String.valueOf(maxid));
         databaseReference.removeValue();
-        Toast.makeText(getApplicationContext(),"Deleted Successful",Toast.LENGTH_SHORT).show();
+
     }
 }
