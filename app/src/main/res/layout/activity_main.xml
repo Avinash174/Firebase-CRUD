@@ -62,24 +62,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="send" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/del"
-        android:inputType="number"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:hint="Enter ID To delete"/>
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="delete"
-        app:backgroundTint="#D60F0F" >
-    </Button>
+
+
 
         </LinearLayout>
     </ScrollView>
